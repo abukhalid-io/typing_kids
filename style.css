@@ -22,6 +22,82 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);min-height
 
 .hero{text-align:center;animation:slideDown .7s ease both;position:relative;z-index:1}
 @keyframes slideDown{from{opacity:0;transform:translateY(-28px)}to{opacity:1;transform:none}}
+/* ===== UKURAN DESKTOP (LEBIH BESAR) ===== */
+@media(min-width:768px){
+  /* Hero lebih besar */
+  .hero-emoji{font-size:100px}
+  .hero-title{font-size:clamp(56px,10vw,100px)}
+  .hero-sub{font-size:20px;margin-top:10px}
+  
+  /* Level cards lebih besar */
+  .level-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1200px}
+  .lcard{padding:28px 24px 22px;border-radius:22px}
+  .lcard-ico{font-size:48px}
+  .lcard-title{font-size:24px}
+  .lcard-desc{font-size:14px}
+  .lcard-stars{font-size:22px}
+  .badge{font-size:12px;padding:5px 14px}
+  
+  /* Stats lebih besar */
+  .stats-row{gap:16px}
+  .spill{font-size:16px;padding:12px 28px}
+  
+  /* Game screen lebih besar */
+  .gtop{padding:18px 32px}
+  .btn-back{font-size:16px;padding:12px 24px}
+  .glvl{font-size:26px}
+  .gmet-l{font-size:12px}
+  .gmet-v{font-size:24px}
+  .gmeters{gap:28px}
+  
+  .gbody{padding:40px 32px;gap:30px;max-width:900px}
+  .lhead{padding:20px 24px;border-radius:20px}
+  .lhead-ico{font-size:52px}
+  .lhead-title{font-size:28px}
+  .lhead-desc{font-size:15px}
+  
+  /* Keyboard lebih besar */
+  .k{width:56px;height:56px;font-size:16px;border-radius:12px}
+  .krow{gap:8px}
+  .kspace{width:240px;font-size:14px}
+  
+  /* Text area lebih besar */
+  .tarea{padding:28px;border-radius:20px;gap:18px}
+  .tdisp{font-size:clamp(20px,3.5vw,30px);line-height:2;min-height:90px}
+  .tinput{font-size:20px;padding:16px 18px;border-radius:14px}
+  .pbar-w{height:8px}
+  
+  /* Timer lebih besar */
+  .timer-area{gap:20px}
+  .tring{width:100px;height:100px}
+  .tring span{font-size:26px}
+  .rbg,.rfill{stroke-width:8}
+  .btn-go{font-size:24px;padding:18px 60px}
+  
+  /* Result screen lebih besar */
+  .rcontent{padding:50px 32px;gap:24px}
+  .rburst{font-size:90px}
+  .rtitle{font-size:52px}
+  .rmsg{font-size:18px}
+  .rstat{padding:22px 30px;min-width:120px}
+  .rsv{font-size:40px}
+  .rsl{font-size:13px}
+  .rfeed{font-size:15px;padding:18px 20px}
+  .btn-pri{font-size:22px;padding:16px 40px}
+  .btn-sec{font-size:17px;padding:14px 28px}
+  .btn-gh{font-size:15px}
+  .confp{width:12px;height:12px}
+}
+
+/* ===== UKURAN MOBILE ===== */
+@media(max-width:600px){
+  .k{width:28px;height:28px;font-size:9px}
+  .kspace{width:120px}
+  .tdisp{font-size:14px}
+  .gtop{padding:10px 14px}
+}
+
+/* ===== UKURAN DEFAULT (JIKA BUKAN MOBILE) ===== */
 .hero-emoji{font-size:72px;display:block;animation:pulse 2.5s ease-in-out infinite;filter:drop-shadow(0 0 24px rgba(0,212,255,.5))}
 @keyframes pulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
 .hero-title{font-family:var(--font-d);font-size:clamp(44px,9vw,80px);background:linear-gradient(130deg,#00d4ff 0%,#bf6aff 50%,#ff5e78 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px;margin-top:8px}
@@ -119,4 +195,3 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-b);min-height
 .btn-gh:hover{color:var(--text)}
 .confp{position:fixed;width:9px;height:9px;top:-12px;border-radius:2px;animation:cfall linear forwards;pointer-events:none;z-index:999}
 @keyframes cfall{to{top:105vh;transform:rotate(720deg)}}
-@media(max-width:600px){.k{width:28px;height:28px;font-size:9px}.kspace{width:120px}.tdisp{font-size:14px}.gtop{padding:10px 14px}}
