@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TypeKids — Belajar Mengetik & Python</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="home" class="screen active">
+  <div class="stars-bg" id="stars-bg"></div>
+  <div class="hero">
+    <span class="hero-emoji">⌨️</span>
+    <h1 class="hero-title">TypeKids</h1>
+    <p class="hero-sub">Belajar Mengetik Cepat & Mengenal Python!</p>
+  </div>
+  <div class="level-grid" id="level-grid"></div>
+  <div class="stats-row">
+    <div class="spill">Level <span id="st-lv">1</span></div>
+    <div class="spill">🏆 <span id="st-stars">0</span> Bintang</div>
+    <div class="spill">🔥 <span id="st-streak">0</span> Streak</div>
+  </div>
+</div>
+<div id="game" class="screen">
+  <div class="gtop">
+    <button class="btn-back" onclick="goHome()">← Kembali</button>
+    <div class="glvl" id="glvl">Level 1</div>
+    <div class="gmeters">
+      <div class="gmet"><span class="gmet-l">WPM</span><span class="gmet-v" id="gWPM">0</span></div>
+      <div class="gmet"><span class="gmet-l">Akurasi</span><span class="gmet-v" id="gACC">100%</span></div>
+      <div class="gmet"><span class="gmet-l">Skor</span><span class="gmet-v" id="gSCORE">0</span></div>
+    </div>
+  </div>
+  <div class="gbody">
+    <div class="lhead">
+      <span class="lhead-ico" id="lico">🎯</span>
+      <div><div class="lhead-title" id="ltitle">Latihan</div><div class="lhead-desc" id="ldesc">Ikuti instruksi</div></div>
+    </div>
+    <div class="kb" id="kb">
+      <div class="krow">
+        <div class="k" data-k="q">Q</div><div class="k" data-k="w">W</div><div class="k" data-k="e">E</div><div class="k" data-k="r">R</div><div class="k" data-k="t">T</div>
+        <div class="k" data-k="y">Y</div><div class="k" data-k="u">U</div><div class="k" data-k="i">I</div><div class="k" data-k="o">O</div><div class="k" data-k="p">P</div>
+      </div>
+      <div class="krow">
+        <div class="k home" data-k="a">A</div><div class="k home" data-k="s">S</div><div class="k home" data-k="d">D</div><div class="k home" data-k="f">F</div><div class="k" data-k="g">G</div>
+        <div class="k" data-k="h">H</div><div class="k home" data-k="j">J</div><div class="k home" data-k="k">K</div><div class="k home" data-k="l">L</div><div class="k home" data-k=";">;</div>
+      </div>
+      <div class="krow">
+        <div class="k" data-k="z">Z</div><div class="k" data-k="x">X</div><div class="k" data-k="c">C</div><div class="k" data-k="v">V</div><div class="k" data-k="b">B</div>
+        <div class="k" data-k="n">N</div><div class="k" data-k="m">M</div><div class="k" data-k=",">,</div><div class="k" data-k=".">.</div>
+      </div>
+      <div class="krow"><div class="k kspace" data-k=" ">SPASI</div></div>
+    </div>
+    <div class="tarea">
+      <div class="tdisp" id="tdisp"></div>
+      <input type="text" id="tinput" class="tinput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Mulai mengetik di sini..." disabled>
+      <div class="pbar-w"><div class="pbar" id="pbar"></div></div>
+    </div>
+    <div class="timer-area">
+      <div class="tring">
+        <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" class="rbg"/><circle cx="40" cy="40" r="34" class="rfill" id="rfill"/></svg>
+        <span id="ttime">—</span>
+      </div>
+      <button class="btn-go" id="btnGo" onclick="startEx()">▶ Mulai</button>
+    </div>
+  </div>
+</div>
+<div id="result" class="screen">
+  <div class="rcontent">
+    <div class="rburst" id="rburst">🎉</div>
+    <h2 class="rtitle" id="rtitle">Hebat!</h2>
+    <p class="rmsg" id="rmsg">Level berhasil!</p>
+    <div class="rstats">
+      <div class="rstat"><span class="rsv" id="rWPM">0</span><span class="rsl">WPM</span></div>
+      <div class="rstat"><span class="rsv" id="rACC">0%</span><span class="rsl">Akurasi</span></div>
+      <div class="rstat"><span class="rsv" id="rSTARS">☆☆☆</span><span class="rsl">Bintang</span></div>
+    </div>
+    <div class="rfeed" id="rfeed"></div>
+    <div class="rbtns">
+      <button class="btn-pri" id="btnNext" onclick="nextLevel()">Level Berikutnya →</button>
+      <button class="btn-sec" onclick="replayLevel()">🔄 Ulangi</button>
+      <button class="btn-gh" onclick="goHome()">🏠 Menu</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
