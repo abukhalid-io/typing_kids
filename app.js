@@ -105,7 +105,16 @@ document.addEventListener('DOMContentLoaded',()=>{
   load();makeStar();makeFloatKeys();renderHome();
   const inp=document.getElementById('tinput');
   inp.addEventListener('input',onInput);
-  inp.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const p=e.target.selectionStart;const v=e.target.value;e.target.value=v.slice(0,p)+'    '+v.slice(p);e.target.selectionStart=e.target.selectionEnd=p+4;onInput({target:e.target});}});
+  inp.addEventListener('keydown',e=>{
+    // Tab untuk indentasi di Python
+    if(e.key==='Tab'){e.preventDefault();const p=e.target.selectionStart;const v=e.target.value;e.target.value=v.slice(0,p)+'    '+v.slice(p);e.target.selectionStart=e.target.selectionEnd=p+4;onInput({target:e.target});}
+    // Spasi untuk memulai latihan (jika belum berjalan)
+    if(e.key===' '&&!S.running&&!inp.disabled&&document.getElementById('game').classList.contains('active')){e.preventDefault();startEx();}
+  });
+  // Dengarkan spasi di document juga (jika fokus di tempat lain)
+  document.addEventListener('keydown',e=>{
+    if(e.key===' '&&!S.running&&document.getElementById('game').classList.contains('active')){const inp=document.getElementById('tinput');if(!inp.disabled){e.preventDefault();startEx();inp.focus();}}
+  });
 });
 
 function onInput(e){
